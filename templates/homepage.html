@@ -5,8 +5,19 @@
 <div class = "container-fluid">
     <h1>Welcome to Opportunity Block!</h1>
     <p>Your neighbourhood bulletin board.</p>
+
+    {% if not session %}
+
     <p>Please <a href="/register">register</a> or <a href="/login">log in</a> to start exploring.</p>
     <br>
+
+    {% else %}
+
+    <p>Click <a href="/profile">here</a> to view your profile.</p>
+    <p>Click <a href="/compose">here</a> to make a post.</p>
+    <p>Click <a href="/posts">here</a> to view all posts.</p>
+
+    {% endif %}
 
     {% if session %}
         <h2>Welcome, {{ session['username'] }}!</h2>

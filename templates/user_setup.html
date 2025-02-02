@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class = "container-fluid">
+    <h1 class = 'text-center'>Set up your account</h1>
+    <form action="/setup" method="post">
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="first_interest" name="first_interest">
+                <option value="" disabled selected>First interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="second_interest" name="second_interest">
+                <option value="" disabled selected>Second interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="third_interest" name="third_interest">
+                <option value="" disabled selected>Third interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3 text-center">
+            <textarea id="aboutme" name="aboutme" rows="4" cols="50" placeholder="Add a bit about yourself."></textarea>
+        </div>
+        <div class = "text-center">
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
+        {% if error %}
+        <div class="text-center">
+            <p class="text-danger">{{ error }}</p>
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}

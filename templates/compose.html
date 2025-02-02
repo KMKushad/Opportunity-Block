@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class = "container-fluid">
+    <form action="/compose" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="title" name="title" placeholder="Title" type="text">
+        </div>
+        <div class="mb-3 text-center">
+            <textarea id="content" name="content" rows="4" cols="50" placeholder="Message"></textarea>
+        </div>
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="first_interest" name="first_interest">
+                <option value="" disabled selected>First interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="first_tuning" name="first_tuning" placeholder="Weight" type="text">
+        </div>
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="second_interest" name="second_interest">
+                <option value="" disabled selected>Second interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="second_tuning" name="second_tuning" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <select class="form-control mx-auto w-auto" id="third_interest" name="third_interest">
+                <option value="" disabled selected>Third interest</option>
+                {% for s in subjects %}
+                    <option value="{{ s }}">{{ s }}</option>
+                {% endfor %}
+            </select>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="third_tuning" name="third_tuning" placeholder="Username" type="text">
+        </div>
+        <div class = "text-center">
+            <button class="btn btn-primary" type="submit">Post</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

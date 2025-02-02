@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class = "container-fluid">
+    <div class = "text-start">
+        <a href = "/">Back To Homepage</a>
+    </div>
+
+    <div class = "text-center">
+        <form action = "/compose" method = "post">
+            <input type = "submit" value = "Post"> <br>
+        </form>
+    </div>
+
+    <div class = "ms-2">
+        {% for post in posts %}
+            <form action = "/post/{{ post[0] }}", method = "post" class = "w-100">
+                <div class = "pull-left text-start width-100 d-grid gap-2">
+                    <input type = "submit" name = "{{ post[0] }}" class = "btn btn-block text-start" value = "{{ post[2] }}   |   Written by {{ post[6] }} at {{ post[4] }} EST">
+                </div>
+            </form>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class = "container-fluid">
+    <h1>Account Information</h1>
+    <p><u>Current weights</u></p>
+
+    {% for key in info["keys"] %}
+        Your weight in the subject area of {{ key }} is {{ info["weights"][key] }} <br>
+    {% endfor %}
+
+    <br> 
+
+    <form action="/updatebio" method="post">
+        <div class="mb-3 text-center">
+            <textarea id="newbio" name="newbio" rows="4" cols="50" placeholder="Add a bit about yourself.">
+            {{ aboutme }}
+            </textarea>
+        </div>
+        <div class = "text-center">
+            <button class="btn btn-primary" type="submit">Edit About Me</button>
+        </div>
+        {% if error %}
+        <div class="text-center">
+            <p class="text-danger">{{ error }}</p>
+        </div>
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}
