@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class = "container-fluid">
+    <h1>Welcome to Opportunity Block!</h1>
+    <p>Your neighbourhood bulletin board.</p>
+    <p>Please <a href="/register">register</a> or <a href="/login">log in</a> to start exploring.</p>
+    <br>
+
+    {% if session %}
+        <h2>Welcome, {{ session['username'] }}!</h2>
+    {% endif %}
+</div>
+
+{% endblock %}
